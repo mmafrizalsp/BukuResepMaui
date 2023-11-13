@@ -4,12 +4,10 @@ namespace Resepku;
 
 public partial class ManageResepPage : ContentPage
 {
-	private readonly DataServices _services;
 	public MakananModels _currentResep { get; set; }
 	public ManageResepPage(MakananModels tempdata = null)
 	{
 		InitializeComponent();
-		_services = new();
 		_currentResep = tempdata == null ? new() : tempdata;
 
         this.BindingContext = _currentResep;
