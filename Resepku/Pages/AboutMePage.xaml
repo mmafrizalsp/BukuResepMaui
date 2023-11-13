@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Padding="20"
+             x:Class="Resepku.AboutMePage"
+             Title="About Me">
+    <VerticalStackLayout>
+        <Image HeightRequest="150"
+               WidthRequest="150"
+               x:Name="imgsource"/>
+
+        <Label Margin="0, 50, 0, 10"
+               Text="Find me on"/>
+        <CollectionView x:Name="listsosmed"
+                        ItemsSource="{Binding SosialMediaModels}"
+                        SelectionMode="Single"
+                        SelectionChanged="listsosmed_SelectionChanged"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="4"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ClassId="{Binding}">
+                        <Image Source="{Binding Photo}"
+                               HeightRequest="50"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
