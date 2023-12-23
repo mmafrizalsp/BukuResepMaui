@@ -33,7 +33,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0"
-                               Source="dotnet_bot.svg"
+                               Source="{Binding Photo}"
                                HeightRequest="60"
                                WidthRequest="60"/>
 

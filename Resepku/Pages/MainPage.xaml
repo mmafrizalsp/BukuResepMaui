@@ -45,7 +45,7 @@
                                    VerticalOptions="StartAndExpand"
                                    VerticalTextAlignment="Start"/>
 
-                            <Label Text="{Binding TglDitambahkan}"
+                            <Label Text="{Binding TglDitambahkanId}"
                                    FontSize="14"
                                    VerticalOptions="EndAndExpand"
                                    VerticalTextAlignment="End"

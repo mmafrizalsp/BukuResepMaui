@@ -11,18 +11,27 @@
         </Grid.RowDefinitions>
 
         <VerticalStackLayout Grid.Row="0">
-            <Image Source="dotnet_bot"
-                   HeightRequest="100"
-                   WidthRequest="100"/>
+            <Image Source="{Binding Photo}"
+                   HeightRequest="200"
+                   WidthRequest="200"/>
             <Label Text="{Binding Nama}"
                    FontSize="20"
                    FontAttributes="Bold"
                    Margin="0, 10"
                    HorizontalOptions="CenterAndExpand"
                    HorizontalTextAlignment="Center"/>
-            <Label Text="{Binding Deskripsi}"
+            
+            <Label Text="Tanggal Ditambahkan:"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding TglDitambahkanId}"
                    LineBreakMode="WordWrap"
-                   Margin="0, 5"/>
+                   Margin="0, 0, 0, 5"/>
+            
+            <Label Text="Deskripsi:"
+                   FontAttributes="Bold"
+                   Margin="0, 5, 0, 0"/>
+            <Label Text="{Binding Deskripsi}"
+                   LineBreakMode="WordWrap"/>
         </VerticalStackLayout>
 
         <Button x:Name="btn_edit"

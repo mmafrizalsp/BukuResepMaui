@@ -15,13 +15,19 @@ public partial class ManageResepPage : ContentPage
 
     async void btn_simpan_Clicked(object sender, EventArgs e)
     {
-		_currentResep.TglDitambahkan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        _currentResep.TglDitambahkan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+		input_date.IsVisible = true;
         try
 		{
-			var proses_simpan = await App.SQLiteDb.SaveMakanan(_currentResep);
+			if (string.IsNullOrEmpty(_currentResep.Id))
+			{
+				_currentResep.Id = Guid.NewGuid().ToString().Replace("-", "");
+			}
+            var proses_simpan = await App.SQLiteDb.SaveMakanan(_currentResep);
 			if (proses_simpan == 1)
 			{
                 await DisplayAlert("Informasi", "Data berhasil disimpan", "OK");
+				await Navigation.PopAsync();
             }
 			else
 			{

@@ -1,4 +1,7 @@
-﻿namespace Resepku;
+﻿using Resepku.Services;
+using System.Globalization;
+
+namespace Resepku;
 
 public partial class DetailResepPage : ContentPage
 {

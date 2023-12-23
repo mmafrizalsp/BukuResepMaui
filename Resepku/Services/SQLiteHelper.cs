@@ -21,27 +21,25 @@ public class SQLiteHelper
             {
                 item.Photo = "dotnet_bot";
             }
-            else
-            {
-                item.Photo = Path.GetFileName(item.Photo);
-            }
         }
         return data;
+    }
+
+    public async Task<bool> CheckMakananExists(string makananId)
+    {
+        var data = await db.Table<MakananModels>().FirstOrDefaultAsync(x => x.Id == makananId);
+        if (data != null)
+            return true;
+        else
+            return false;
     }
 
     public async Task<int> SaveMakanan(MakananModels context)
     {
         try
         {
-            var cekdatalama = (await LoadMakanan()).FirstOrDefault(x => x.Id == context.Id);
-            if (cekdatalama != null)
-            {
-                return await db.UpdateAsync(context);
-            }
-            else
-            {
-                return await db.InsertAsync(context);
-            }
+            var cekdatalama = await CheckMakananExists(context.Id);
+            return cekdatalama ? await db.UpdateAsync(context) : await db.InsertAsync(context);
         }
         catch (Exception en)
         {
